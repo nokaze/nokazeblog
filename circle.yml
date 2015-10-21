@@ -1,0 +1,18 @@
+machine:
+    timezone: Asia/Tokyo
+
+dependencies:
+    pre:
+        - go get -v github.com/spf13/hugo
+        - git config --global user.name "nokaze"
+        - git config --global user.email "nokaze.bwind@gmail.com"
+
+deployment:
+    master:
+        branch: master
+        commands:
+            - git clone git@github.com:nokaze/nokaze.github.io.git nokazeblog/public
+            - cd nokazeblog && hugo --theme=hyde-x -D
+            - cd nokazeblog/public && git add .
+            - cd nokazeblog/public && git commit -m "Publish via CircleCI"
+            - cd nokazeblog/public && git push -f origin master
