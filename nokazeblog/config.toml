@@ -1,4 +1,4 @@
-baseurl = "nokaze.github.io"
+baseurl = "/"
 languageCode = "en-us"
 title = "nokaze Blog"
 MetaDataFormat = "toml"
